@@ -36,6 +36,7 @@
   cursor: pointer;
   transition: 0.5s;
   max-width: 282px;
+  box-sizing: border-box;
 }
 
 .profile__title {
