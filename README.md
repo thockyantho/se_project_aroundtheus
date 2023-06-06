@@ -24,6 +24,10 @@ The functionalities we used:
 - Importing fonts
 - Responsive Designs
 
+**GitHub Pages**
+
+https://thockyantho.github.io/se_project_aroundtheus/
+
 **Figma**
 
 - [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
