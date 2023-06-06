@@ -2,9 +2,23 @@
   color: #545454;
   font-size: 18px;
   line-height: 22px;
+  font-weight: 400;
 }
 
 .footer__copyright {
   max-width: 880px;
   margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+@media screen and (max-width: 320px) {
+  .foot {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .footer__copyright {
+    padding-bottom: 60px;
+  }
 }
