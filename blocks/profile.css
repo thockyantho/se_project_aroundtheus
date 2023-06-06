@@ -28,6 +28,10 @@
   box-sizing: border-box;
 }
 
+.profile__edit-button:hover {
+  opacity: 50%;
+}
+
 .profile__add-button {
   background: transparent url(../images/add-icon.svg) center no-repeat;
   height: 50px;
@@ -39,6 +43,10 @@
   max-width: 282px;
   border-radius: 2px;
   box-sizing: border-box;
+}
+
+.profile__add-button:hover {
+  opacity: 50%;
 }
 
 .profile__title {
