@@ -1,0 +1,11 @@
+.header {
+  padding-top: 45px;
+}
+
+.header__divider {
+  border-bottom: solid 1px #545454;
+  width: 100%;
+  display: flex;
+  margin-top: 41px;
+  opacity: 0.7;
+}

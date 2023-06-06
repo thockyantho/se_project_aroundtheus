@@ -1,37 +1,7 @@
 @import url("../vendor/normalize.css");
 @import url("../vendor/fonts.css");
-
-.page {
-  background-color: black;
-  color: white;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
-}
-
-.page__section {
-  max-width: 880px;
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-  margin: 0 auto;
-}
-
-.page__content {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.header {
-  padding-top: 45px;
-}
-
-.header__divider {
-  border-bottom: solid 1px #545454;
-  width: 100%;
-  display: flex;
-  margin-top: 41px;
-  opacity: 0.7;
-}
+@import url("../blocks/page.css");
+@import url("../blocks/header.css");
 
 .profile {
   display: flex;
