@@ -1,12 +1,17 @@
+@import url("../vendor/normalize.css");
+@import url("../vendor/fonts.css");
+
 .page {
   background-color: black;
   color: white;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 .page__section {
   max-width: 880px;
   width: 100%;
   position: relative;
+  box-sizing: border-box;
   margin: 0 auto;
 }
 
@@ -17,14 +22,32 @@
 }
 
 .header {
-  margin-top: 45px;
+  padding-top: 45px;
+}
+
+.header__divider {
+  border-bottom: solid 1px #545454;
+  width: 100%;
+  display: flex;
+  margin-top: 41px;
+  opacity: 0.7;
 }
 
 .profile {
   display: flex;
   align-items: center;
   padding-top: 40px;
+  margin-bottom: auto;
 }
+
+.profile__title {
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 500;
+  grid-area: title;
+  margin: 0;
+}
+
 .profile__info {
   display: grid;
   grid-template-areas:
@@ -38,6 +61,13 @@
   height: 24px;
   width: 24px;
   grid-area: button;
+  background-size: 10px 10px;
+  border: 1px solid #fff;
+  align-self: center;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-left: 18px;
+  margin-right: 165px;
 }
 
 .profile__add-button {
@@ -45,6 +75,10 @@
   height: 50px;
   width: 150px;
   margin-left: auto;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: 0.5s;
+  max-width: 282px;
 }
 
 .profile__title {
@@ -53,6 +87,10 @@
   font-weight: 500;
   grid-area: title;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 373px;
 }
 
 .profile__description {
@@ -61,6 +99,11 @@
   font-weight: 400;
   grid-area: description;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 415px;
+  margin-bottom: 36px;
 }
 
 .profile__image {
@@ -72,11 +115,11 @@
   margin-right: 24px;
 }
 
-.gallery {
-  /* fonts */
+.cards {
+  padding: 15px 0 36px;
 }
 
-.gallery__cards {
+.card__list {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
@@ -89,7 +132,6 @@
 .card {
   display: flex;
   flex-direction: column;
-  font-family: "Inter", Arial, sans-serif;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -126,6 +168,12 @@
   background: transparent url(../images/like-inactive.svg) center no-repeat;
   width: 21px;
   height: 18px;
+  border: none;
+  transition: 0.5s;
+}
+
+.card__like-button:hover {
+  background: transparent url(../images/like-active.svg);
 }
 
 @media screen and (max-width: 480px) {
@@ -137,6 +185,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: center;
   }
 
   .profile__description {
@@ -148,6 +197,16 @@
     margin: 0;
     width: 100%;
   }
+
+  .profile__title {
+    font-size: 22px;
+    width: 75%;
+    text-align: center;
+  }
+
+  .profile__edit-button {
+    margin: 0px;
+  }
 }
 
 @media screen and (max-width: 1100px) {
@@ -155,4 +214,11 @@
     margin: 0 20px;
     max-width: calc(100% - 40px);
   }
+}
+
+.footer {
+  color: #545454;
+  font-size: 18px;
+  max-width: 880px;
+  margin: 0 auto;
 }
