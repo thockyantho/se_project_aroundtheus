@@ -29,7 +29,7 @@
 }
 
 .profile__edit-button:hover {
-  opacity: 50%;
+  opacity: 60%;
 }
 
 .profile__add-button {
@@ -46,7 +46,7 @@
 }
 
 .profile__add-button:hover {
-  opacity: 50%;
+  opacity: 60%;
 }
 
 .profile__title {
