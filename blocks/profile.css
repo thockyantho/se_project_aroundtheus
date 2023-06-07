@@ -133,6 +133,9 @@
   .profile__description {
     width: 100%;
     padding-top: 14px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 17px;
   }
 
   .profile__title {
@@ -142,7 +145,7 @@
 
   .profile__info {
     width: 100%;
-    margin-top: 26px;
+    margin-top: 0;
   }
   .profile__edit-button {
     max-width: 18px;

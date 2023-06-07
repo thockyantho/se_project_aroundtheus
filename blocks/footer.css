@@ -8,17 +8,13 @@
 .footer__copyright {
   max-width: 880px;
   margin: 0 auto;
-  padding-top: 20px;
-  padding-bottom: 60px;
+  padding-bottom: 36px;
+  padding-top: 12px;
 }
 
 @media screen and (max-width: 320px) {
-  .foot {
+  .footer__copyright {
     font-size: 14px;
     line-height: 17px;
-  }
-
-  .footer__copyright {
-    padding-bottom: 60px;
   }
 }
