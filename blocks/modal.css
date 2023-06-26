@@ -96,7 +96,7 @@
     margin-top: 3px;
   }
 
-  .modal__form_input {
+  .modal__form-input {
     width: 238px;
     height: 17px;
     padding: 0px 0px 9px 0px;
@@ -115,5 +115,11 @@
     left: calc(100% - 30px);
     height: 26px;
     width: 26px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .modal__container {
+    width: 282px;
   }
 }
