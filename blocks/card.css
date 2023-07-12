@@ -41,6 +41,9 @@
   transition: 0.5s;
 }
 
+.card__trash-button {
+}
+
 .card__like-button_active {
   background-image: url(../images/like-active.svg);
 }
