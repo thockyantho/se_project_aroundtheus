@@ -71,8 +71,11 @@ function getCardElement(cardData) {
   // search go the like button
   const likeButton = cardElement.querySelector(".card__like-button");
   // find delete button
-
+  const trashButton = cardElement.querySelector(".card__trash-button");
   // add the event listner to the delete button
+  trashButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
   // cardElement.remove();
 
   // add click listener to the cardImage element

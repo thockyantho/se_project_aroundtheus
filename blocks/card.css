@@ -3,6 +3,7 @@
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
 
 .card__title {
@@ -41,9 +42,6 @@
   transition: 0.5s;
 }
 
-.card__trash-button {
-}
-
 .card__like-button_active {
   background-image: url(../images/like-active.svg);
 }
@@ -51,4 +49,20 @@
 .card__like-button:hover {
   background: transparent url(../images/like-hover.svg);
   cursor: pointer;
+}
+
+.card__trash-button {
+  background: transparent url(../images/Trash.svg) center no-repeat;
+  width: 18px;
+  height: 19px;
+  border: none;
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  transition: 0.5s;
+}
+
+.card__trash-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
