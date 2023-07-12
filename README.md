@@ -1,6 +1,6 @@
 # Project 3: Around The U.S.
 
-In this project we work with a Figma design that provides layouts for mobile (320px) and desktop (1280px). The webpage we create is responsive with the width of the content area and changes depending on the width of the browser window, all while not having any horizontal scrolling.
+In this project we work with a Figma design that provides layouts for mobile (320px) and desktop (1280px). Building on the last project where we laid out the sturcture and design on the webpage, we've features to the project by making it functional.
 
 ### Overview
 
@@ -10,19 +10,19 @@ In this project we work with a Figma design that provides layouts for mobile (32
 
 **Intro**
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+The user can write a custom name for the card and add a link to a picture. If the user clicks on the "Like" button, the heart changes its color, add a delete icon to the cards. Once a user clicks on a picture, the modal box with that picture opens. When they click "Close," it closes. All the modal boxes smoothly appear out from transparency, and when being closed, they smoothly become completely transparent again.
 
 ## Project features
 
 The functionalities we used:
 
-- Semantic HTML5
-- Flexbox
-- Positioning
-- Flat BEM
-- Grid Layout
-- Importing fonts
-- Responsive Designs
+- Rendering cards
+- Form for adding a card
+- Adding a card
+- The "Like" button
+- Deleting a card
+- Opening the picture modal
+- Smooth modal opening and closing
 
 **GitHub Pages**
 
@@ -30,7 +30,7 @@ https://thockyantho.github.io/se_project_aroundtheus/
 
 **Figma**
 
-- [Link to the project on Figma]https://www.figma.com/file/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?type=design&node-id=0-1&mode=design&t=LeBdXCspGBhUsnhK-0
+- https://www.figma.com/file/JFPhASqvZ5pBjQV2ouUlim/Sprint-5_-Around-The-U.S.-_-desktop-%2B-mobile-(Copy)?type=design&node-id=0-1&mode=design&t=L68VSkAN7MSMNRKJ-0
 
 **Reference Images**
 
