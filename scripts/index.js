@@ -48,7 +48,6 @@ const cardListEl = document.querySelector(".cards__card-list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const addNewCardButton = document.querySelector(".profile__add-button");
-// const likeButtons = document.querySelector();
 
 /*-----------------------------------------------*/
 /*                  Functions                    */
@@ -114,4 +113,9 @@ addCardModalCloseButton.addEventListener("click", () =>
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.append(cardElement);
+});
+
+const likeButtons = document.querySelectorAll(".card__like-button");
+likeButtons.forEach((likeButton) => {
+  likeButton.addEventListener("click", () => {});
 });
