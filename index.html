@@ -58,7 +58,7 @@
     </div>
     <!-- Edit Modal -->
     <div class="modal" id="profile-edit-modal">
-      <div class="modal__container">
+      <div class="modal__container modal__container-image">
         <button class="modal__close" id="profile-close-button"></button>
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form" id="edit-profile-form">
@@ -103,6 +103,19 @@
           />
           <button class="modal__button" type="submit">Save</button>
         </form>
+      </div>
+    </div>
+
+    <!-- Preview Image -->
+    <div class="modal" id="preview-image">
+      <div class="modal__container-image-preview">
+        <button
+          class="modal__close modal__close_type_preview"
+          type="button"
+          id="preview-image-close"
+        ></button>
+        <img class="modal__card-image-preview" alt="Image Preview" src="#" />
+        <p class="modal__title-preview"></p>
       </div>
     </div>
 
