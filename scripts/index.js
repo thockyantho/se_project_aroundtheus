@@ -100,6 +100,13 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+const isEscEvent = (evt, action) => {
+  const activePopUp = document.querySelector(".modal_opened");
+  if (evt.key === "Escape") {
+    action(activePopUp);
+  }
+};
+
 previewImageClose.addEventListener("click", () =>
   closeModal(previewImageModal)
 );
