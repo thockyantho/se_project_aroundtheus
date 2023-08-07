@@ -131,6 +131,11 @@ function renderCard(cardData, wrapper) {
   wrapper.prepend(cardElement);
 }
 
+const handleEscUp = (evt) => {
+  evt.preventDefault();
+  isEscEvent(evt, closeModal);
+};
+
 /*-----------------------------------------------------*/
 /*                  Event Handlers                     */
 /*-----------------------------------------------------*/

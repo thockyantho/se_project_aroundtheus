@@ -28,26 +28,23 @@ function hasInvalidInput(inputList) {
 }
 
 //disableButton
-const disableSubmitButton = (buttonElement, inactiveButtonClass) => {
-  buttonElement.classList.add(inactiveButtonClass);
-  buttonElement.disabled = true;
+const disableSubmitButton = (submitButton, inactiveButtonClass) => {
+  submitButton.classList.add(inactiveButtonClass);
+  submitButton.disabled = true;
 };
 
 //enableButton
-const enableSubmitButton = (buttonElement, inactiveButtonClass) => {
-  buttonElement.classList.remove(inactiveButtonClass);
-  buttonElement.disabled = false;
-};
-
-function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
-  if (hasInvalidInput(inputEls)) {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
-    return;
-  }
-
+const enableSubmitButton = (submitButton, inactiveButtonClass) => {
   submitButton.classList.remove(inactiveButtonClass);
   submitButton.disabled = false;
+};
+
+function toggleButtonState(inputEls, submitButton, inactiveButtonClass) {
+  if (hasInvalidInput(inputEls)) {
+    disableSubmitButton(submitButton, inactiveButtonClass);
+  } else {
+    enableSubmitButton(submitButton, inactiveButtonClass);
+  }
 }
 
 function setEventListeners(formEl, options) {
