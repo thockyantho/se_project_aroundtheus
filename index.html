@@ -66,7 +66,7 @@
             <input
               type="text"
               name="name"
-              class="modal__input modal__input_type_name modal__input_type_error"
+              class="modal__input modal__input_type_name"
               placeholder="Name"
               id="profile-name-input"
               minlength="2"
@@ -86,15 +86,17 @@
               placeholder="About Me"
               id="profile-description-input"
               minlength="2"
-              maxlength="40"
+              maxlength="200"
               required
             />
           </label>
           <span
-            class="modal__error"
+            class="modal__error popup__error_visible"
             id="profile-description-input-error"
           ></span>
-          <button class="modal__button" type="submit">Save</button>
+          <button class="modal__button modal__button_disabled" type="submit">
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -111,15 +113,33 @@
             class="modal__input modal__input_type_title"
             placeholder="Title"
             id="profile-title-input"
+            minlength="1"
+            maxlength="30"
+            required
           />
+          <span
+            class="modal__error popup__error_visible"
+            id="profile-title-input-error"
+          ></span>
           <input
             type="text"
             name="url"
             class="modal__input modal__input_type_url"
             placeholder="Image link"
             id="profile-url-input"
+            required
           />
-          <button class="modal__button" type="submit">Create</button>
+          <span
+            class="modal__error popup__error_visible"
+            id="profile-url-input-error"
+          ></span>
+          <button
+            class="modal__button modal__button_disabled"
+            type="submit"
+            disabled
+          >
+            Create
+          </button>
         </form>
       </div>
     </div>

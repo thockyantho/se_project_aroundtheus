@@ -84,7 +84,17 @@
   font-size: 18px;
   line-height: 1.2;
   cursor: pointer;
+  transition: 0.5s;
+  border: none;
 }
+
+.modal__button:hover {
+  opacity: 0.8;
+}
+
+/* .modal__button_disabled {
+  opacity: 0.1;
+} */
 
 .modal__container-image-preview {
   position: relative;
