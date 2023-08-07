@@ -28,6 +28,10 @@ function hasInvalidInput(inputList) {
 }
 
 //disableButton
+const disableSubmitButton = (buttonElement, inactiveButtonClass) => {
+  buttonElement.classList.add(inactiveButtonClass);
+  buttonElement.disabled = true;
+};
 
 //enableButton
 
