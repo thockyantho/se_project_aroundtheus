@@ -166,7 +166,7 @@ const handleEscUp = (evt) => {
 };
 
 [profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
-  modal.addEventListener("click", (event) => {
+  modal.addEventListener("mousedown", (event) => {
     if (
       event.target.classList.contains("modal") ||
       event.target.classList.contains("modal__button")
