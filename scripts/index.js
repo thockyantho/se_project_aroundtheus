@@ -85,11 +85,13 @@ function getCardElement(cardData) {
     ".modal__card-image-preview"
   );
   const titlePreview = previewImageModal.querySelector(".modal__title-preview");
+  const altPreview = previewImageModal.querySelector("#preview-image");
 
   cardImageEl.addEventListener("click", () => {
     openModal(previewImageModal);
     imgPreview.src = cardData.link;
     titlePreview.textContent = cardData.name;
+    altPreview.alt = cardData.name;
   });
 
   likeButton.addEventListener("click", () => {

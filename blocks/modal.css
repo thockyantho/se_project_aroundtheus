@@ -131,7 +131,7 @@
 }
 
 .modal__error {
-  color: #f00;
+  color: red;
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
