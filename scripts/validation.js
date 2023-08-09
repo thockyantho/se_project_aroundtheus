@@ -20,18 +20,6 @@ function checkInputValidity(formEl, inputEl, options) {
   hideInputError(formEl, inputEl, options);
 }
 
-//disableButton
-// const disableSubmitButton = (submitButton, inactiveButtonClass) => {
-//   submitButton.classList.add(inactiveButtonClass);
-//   submitButton.disabled = true;
-// };
-
-//enableButton
-// const enableSubmitButton = (submitButton, inactiveButtonClass) => {
-//   submitButton.classList.remove(inactiveButtonClass);
-//   submitButton.disabled = false;
-// };
-
 function hasInvalidInput(inputList) {
   return !inputList.every((inputEl) => inputEl.validity.valid);
 }
