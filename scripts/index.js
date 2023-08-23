@@ -1,4 +1,4 @@
-// import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 /*----------------------------------------------*/
 /*                  Elements                    */
@@ -30,18 +30,6 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
-
-// const cardData = {
-//   name: "Yosemite Valley",
-//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-// };
-
-// const card = new Card(cardData);
-
-// Templates
-// const cardTemplate = document
-//   .querySelector("#card-template")
-//   .content.querySelector(".card");
 
 // Wrapper
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -76,6 +64,18 @@ const cardTitleInput = addCardFormElement.querySelector(
 const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 const previewImageModal = document.querySelector("#preview-image");
 const previewImageClose = document.querySelector("#preview-image-close");
+
+/*------------------------------------------------*/
+/*                  Validation                    */
+/*------------------------------------------------*/
+
+const validationSettings = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
 
 /*-----------------------------------------------*/
 /*                  Functions                    */

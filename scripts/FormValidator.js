@@ -9,10 +9,10 @@ class FormValidator {
     this._form = formEl;
   }
 
-  _showInputError(inputEl, inputEl.validationMessage) {
+  _showInputError(inputEl, errorMessage) {
     const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
     inputEl.classList.add(this._inputErrorClass);
-    errorMessageEl.textContent = inputEl.validationMessage;
+    errorMessageEl.textContent = errorMessage;
     errorMessageEl.classList.add(this._errorClass);
   }
 
@@ -45,5 +45,4 @@ class FormValidator {
   }
 }
 
-const editFormValidiator = new FormValidator();
-editFormValidiator.enableValidation();
+export default FormValidator;
