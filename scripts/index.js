@@ -1,6 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "./FormValidator.js";
-
+import { closeModal, openModal, handleEscUp } from "../utils/utils.js";
 /*----------------------------------------------*/
 /*                  Elements                    */
 /*----------------------------------------------*/
@@ -42,7 +42,6 @@ const addCardFormElement = addCardModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__card-list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-const ImageModal = document.querySelector("#card__image");
 
 // Buttons etc.
 const addNewCardButton = document.querySelector(".profile__add-button");
@@ -93,10 +92,10 @@ addFormValidator.enableValidation();
 /*-----------------------------------------------*/
 /*                  Functions                    */
 /*-----------------------------------------------*/
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keyup", handleEscUp);
-}
+// function closeModal(modal) {
+//   modal.classList.remove("modal_opened");
+//   document.removeEventListener("keyup", handleEscUp);
+// }
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -134,10 +133,10 @@ previewImageClose.addEventListener("click", () =>
   closeModal(previewImageModal)
 );
 
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keyup", handleEscUp);
-}
+// function openModal(modal) {
+//   modal.classList.add("modal_opened");
+//   document.addEventListener("keyup", handleEscUp);
+// }
 
 function renderCard(cardData, wrapper) {
   // const cardElement = getCardElement(cardData, cardSelector);
@@ -187,12 +186,12 @@ addCardModalCloseButton.addEventListener("click", () =>
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
-const handleEscUp = (evt) => {
-  if (evt.key === "Escape") {
-    const activeModal = document.querySelector(".modal_opened");
-    closeModal(activeModal);
-  }
-};
+// const handleEscUp = (evt) => {
+//   if (evt.key === "Escape") {
+//     const activeModal = document.querySelector(".modal_opened");
+//     closeModal(activeModal);
+//   }
+// };
 
 [profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
   modal.addEventListener("mousedown", (event) => {

@@ -1,9 +1,11 @@
+import { closeModal, openModal, handleEscUp } from "../utils/utils.js";
+
 const previewImageModal = document.querySelector("#preview-image");
-const ImageModal = document.querySelector("#card__image");
-// const cardTitleInput = addCardFormElement.querySelector(
-//   ".modal__input_type_title"
-// );
-// const cardImageEl = cardElement.querySelector(".card__image");
+const imgPreview = previewImageModal.querySelector(
+  ".modal__card-image-preview"
+);
+const titlePreview = previewImageModal.querySelector(".modal__title-preview");
+const altPreview = previewImageModal.querySelector("#preview-image-of-modal");
 
 class Card {
   constructor({ name, link }, cardSelector) {
@@ -46,9 +48,10 @@ class Card {
     this._element = null;
   }
   _handlePreviewPicture() {
-    this._element
-      .querySelector(".elements__card-image-preview")
-      .openModal(previewImageModal);
+    imgPreview.src = this._link;
+    altPreview.alt = this._name;
+    titlePreview.textContent = this._name;
+    openModal(previewImageModal);
   }
 
   _getTemplate() {
@@ -62,10 +65,8 @@ class Card {
 
   getView() {
     this._element = this._getTemplate();
-
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__title").textContent = this._name;
-
     this._setEventListeners();
 
     return this._element;
