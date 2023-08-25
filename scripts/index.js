@@ -1,4 +1,5 @@
 import FormValidator from "./FormValidator.js";
+import Card from "../components/Card.js";
 
 /*----------------------------------------------*/
 /*                  Elements                    */
@@ -74,12 +75,14 @@ const cardSelector = "#card-template";
 const editFormElement = profileEditModal.querySelector(".modal__form");
 const addFormElement = addCardModal.querySelector(".modal__form");
 const settings = {
+  formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
 const editFormValidator = new FormValidator(settings, editFormElement);
 const addFormValidator = new FormValidator(settings, addFormElement);
 
@@ -137,7 +140,7 @@ function openModal(modal) {
 
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData, cardSelector);
-  wrapper.prepend(cardElement.getView());
+  wrapper.prepend(cardElement);
 }
 
 /*-----------------------------------------------------*/
