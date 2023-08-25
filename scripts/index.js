@@ -1,5 +1,5 @@
-import FormValidator from "./FormValidator.js";
 import Card from "../components/Card.js";
+import FormValidator from "./FormValidator.js";
 
 /*----------------------------------------------*/
 /*                  Elements                    */
@@ -72,9 +72,10 @@ const cardSelector = "#card-template";
 /*                  Validation                    */
 /*------------------------------------------------*/
 
-const editFormElement = profileEditModal.querySelector(".modal__form");
-const addFormElement = addCardModal.querySelector(".modal__form");
-const settings = {
+// const editFormElement = profileEditModal.querySelector(".modal__form");
+// const addFormElement = addCardModal.querySelector(".modal__form");
+
+const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
@@ -83,8 +84,8 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const editFormValidator = new FormValidator(settings, editFormElement);
-const addFormValidator = new FormValidator(settings, addFormElement);
+const editFormValidator = new FormValidator(config, profileEditForm);
+const addFormValidator = new FormValidator(config, addCardFormElement);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
@@ -120,9 +121,9 @@ function getCardElement(cardData) {
     altPreview.alt = cardData.name;
   });
 
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
+  // likeButton.addEventListener("click", () => {
+  //   likeButton.classList.toggle("card__like-button_active");
+  // });
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
