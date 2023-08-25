@@ -104,9 +104,9 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
   const trashButton = cardElement.querySelector(".card__trash-button");
-  // trashButton.addEventListener("click", () => {
-  //   cardElement.remove();
-  // });
+  trashButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
   const imgPreview = previewImageModal.querySelector(
     ".modal__card-image-preview"
@@ -121,9 +121,9 @@ function getCardElement(cardData) {
     altPreview.alt = cardData.name;
   });
 
-  // likeButton.addEventListener("click", () => {
-  //   likeButton.classList.toggle("card__like-button_active");
-  // });
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_active");
+  });
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;

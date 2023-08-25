@@ -1,52 +1,52 @@
+const previewImageModal = document.querySelector("#preview-image");
+const ImageModal = document.querySelector("#card__image");
+// const cardTitleInput = addCardFormElement.querySelector(
+//   ".modal__input_type_title"
+// );
+// const cardImageEl = cardElement.querySelector(".card__image");
+
 class Card {
-  constructor(cardData, cardSelector) {
-    this._name = cardData.name;
-    this._link = cardData.link;
+  constructor({ name, link }, cardSelector) {
+    this._name = name;
+    this._link = link;
 
     this._cardSelector = cardSelector;
   }
-  // _setEventListeners() {
-  //   this._likeButton.addEventListener("click", () => {
-  //     likeButton.classList.toggle("card__like-button_active");
-  //   });
-  //   trashButton.addEventListener("click", () => {
-  //     cardElement.remove();
-  //   });
-  //   cardImageEl.addEventListener("click", () => {
-  //     openModal(previewImageModal);
-  //     imgPreview.src = cardData.link;
-  //     titlePreview.textContent = cardData.name;
-  //     altPreview.alt = cardData.name;
-  //   });
-  // }
 
   _setEventListeners() {
     this._element
       .querySelector(".card__like-button")
-      .addEventListener("click", this._handleLikeIcon);
+      .addEventListener("click", () => {
+        this._handleLikeIcon();
+      });
 
     this._element
       .querySelector(".card__trash-button")
-      .addEventListener("click", this._handleTrashButton);
+      .addEventListener("click", () => {
+        this._handleTrashButton();
+      });
+
+    this._element.querySelector(".card__image");
 
     this._element
       .querySelector(".card__image")
-      .addEventListener("click", this._handlePreviewPicture);
+      .addEventListener("click", () => {
+        this._handlePreviewPicture();
+      });
   }
 
   _handleLikeIcon() {
-    this._cardElement
+    this._element
       .querySelector(".card__like-button")
       .classList.toggle(".card__like-button_active");
   }
 
   _handleTrashButton() {
-    this._cardElement
-      .querySelector(".elements__trash-button")
-      .cardElement.remove();
+    this._element.remove();
+    this._element = null;
   }
   _handlePreviewPicture() {
-    this._cardElement
+    this._element
       .querySelector(".elements__card-image-preview")
       .openModal(previewImageModal);
   }
@@ -73,3 +73,18 @@ class Card {
 }
 
 export default Card;
+
+// _setEventListeners() {
+//   this._likeButton.addEventListener("click", () => {
+//     likeButton.classList.toggle("card__like-button_active");
+//   });
+//   trashButton.addEventListener("click", () => {
+//     cardElement.remove();
+//   });
+//   cardImageEl.addEventListener("click", () => {
+//     openModal(previewImageModal);
+//     imgPreview.src = cardData.link;
+//     titlePreview.textContent = cardData.name;
+//     altPreview.alt = cardData.name;
+//   });
+// }
