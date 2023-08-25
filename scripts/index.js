@@ -104,9 +104,9 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
   const trashButton = cardElement.querySelector(".card__trash-button");
-  trashButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  // trashButton.addEventListener("click", () => {
+  //   cardElement.remove();
+  // });
 
   const imgPreview = previewImageModal.querySelector(
     ".modal__card-image-preview"
@@ -140,7 +140,9 @@ function openModal(modal) {
 }
 
 function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData, cardSelector);
+  // const cardElement = getCardElement(cardData, cardSelector);
+  const card = new Card(cardData, cardSelector);
+  const cardElement = card.getView();
   wrapper.prepend(cardElement);
 }
 
