@@ -1,4 +1,4 @@
-import { closeModal, openModal, handleEscUp } from "../utils/utils.js";
+import { openModal } from "../utils/utils.js";
 
 const previewImageModal = document.querySelector("#preview-image");
 const imgPreview = previewImageModal.querySelector(
@@ -40,7 +40,7 @@ class Card {
   _handleLikeIcon() {
     this._element
       .querySelector(".card__like-button")
-      .classList.toggle(".card__like-button_active");
+      .classList.toggle("card__like-button_active");
   }
 
   _handleTrashButton() {

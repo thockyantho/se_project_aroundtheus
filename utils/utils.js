@@ -1,5 +1,3 @@
-const modals = document.querySelectorAll(".modal");
-let activeModal = null;
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
 const previewImageModal = document.querySelector("#preview-image");

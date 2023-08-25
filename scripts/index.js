@@ -1,6 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "./FormValidator.js";
-import { closeModal, openModal, handleEscUp } from "../utils/utils.js";
+import { closeModal, openModal } from "../utils/utils.js";
 /*----------------------------------------------*/
 /*                  Elements                    */
 /*----------------------------------------------*/
@@ -40,8 +40,8 @@ const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__card-list");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
+// const cardTemplate =
+//   document.querySelector("#card-template").content.firstElementChild;
 
 // Buttons etc.
 const addNewCardButton = document.querySelector(".profile__add-button");
@@ -62,7 +62,7 @@ const cardTitleInput = addCardFormElement.querySelector(
   ".modal__input_type_title"
 );
 const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
-const previewImageModal = document.querySelector("#preview-image");
+// const previewImageModal = document.querySelector("#preview-image");
 const previewImageClose = document.querySelector("#preview-image-close");
 
 const cardSelector = "#card-template";
@@ -97,37 +97,37 @@ addFormValidator.enableValidation();
 //   document.removeEventListener("keyup", handleEscUp);
 // }
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const trashButton = cardElement.querySelector(".card__trash-button");
-  trashButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+// function getCardElement(cardData) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImageEl = cardElement.querySelector(".card__image");
+//   const cardTitleEl = cardElement.querySelector(".card__title");
+//   const likeButton = cardElement.querySelector(".card__like-button");
+//   const trashButton = cardElement.querySelector(".card__trash-button");
+//   trashButton.addEventListener("click", () => {
+//     cardElement.remove();
+//   });
 
-  const imgPreview = previewImageModal.querySelector(
-    ".modal__card-image-preview"
-  );
-  const titlePreview = previewImageModal.querySelector(".modal__title-preview");
-  const altPreview = previewImageModal.querySelector("#preview-image-of-modal");
+//   const imgPreview = previewImageModal.querySelector(
+//     ".modal__card-image-preview"
+//   );
+//   const titlePreview = previewImageModal.querySelector(".modal__title-preview");
+//   const altPreview = previewImageModal.querySelector("#preview-image-of-modal");
 
-  cardImageEl.addEventListener("click", () => {
-    openModal(previewImageModal);
-    imgPreview.src = cardData.link;
-    titlePreview.textContent = cardData.name;
-    altPreview.alt = cardData.name;
-  });
+//   cardImageEl.addEventListener("click", () => {
+//     openModal(previewImageModal);
+//     imgPreview.src = cardData.link;
+//     titlePreview.textContent = cardData.name;
+//     altPreview.alt = cardData.name;
+//   });
 
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-  cardTitleEl.textContent = cardData.name;
-  return cardElement;
-}
+//   likeButton.addEventListener("click", () => {
+//     likeButton.classList.toggle("card__like-button_active");
+//   });
+//   cardImageEl.src = cardData.link;
+//   cardImageEl.alt = cardData.name;
+//   cardTitleEl.textContent = cardData.name;
+//   return cardElement;
+// }
 
 previewImageClose.addEventListener("click", () =>
   closeModal(previewImageModal)
@@ -193,16 +193,16 @@ initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 //   }
 // };
 
-[profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
-  modal.addEventListener("mousedown", (event) => {
-    if (
-      event.target.classList.contains("modal") ||
-      event.target.classList.contains("modal__button")
-    ) {
-      closeModal(modal);
-    }
-  });
-});
+// [profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
+//   modal.addEventListener("mousedown", (event) => {
+//     if (
+//       event.target.classList.contains("modal") ||
+//       event.target.classList.contains("modal__button")
+//     ) {
+//       closeModal(modal);
+//     }
+//   });
+// });
 
 // const settings = {
 //   formSelector: ".modal__form",
