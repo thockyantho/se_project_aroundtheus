@@ -35,7 +35,7 @@ class Card {
   // }
 
   _handleLikeIcon() {
-    this._cardElement
+    this._element
       .querySelector(".card__like-button")
       .classList.toggle(".card__like-button_active");
   }
