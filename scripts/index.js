@@ -65,6 +65,8 @@ const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 const previewImageModal = document.querySelector("#preview-image");
 const previewImageClose = document.querySelector("#preview-image-close");
 
+const cardSelector = "#card-template";
+
 /*------------------------------------------------*/
 /*                  Validation                    */
 /*------------------------------------------------*/
@@ -76,6 +78,18 @@ const validationSettings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
+const editFormElement = profileEditModal.querySelector(".modal__form");
+const addFormElement = addCardModal.querySelector(".modal__form");
+
+const editFormValidator = new FormValidator(
+  validationSettings,
+  editFormElement
+);
+const addFormValidator = new FormValidator(validationSettings, addFormElement);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
 
 /*-----------------------------------------------*/
 /*                  Functions                    */
@@ -127,8 +141,8 @@ function openModal(modal) {
 }
 
 function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
+  const cardElement = getCardElement(cardData, cardSelector);
+  wrapper.prepend(cardElement.getView());
 }
 
 /*-----------------------------------------------------*/

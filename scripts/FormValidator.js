@@ -16,13 +16,35 @@ class FormValidator {
     errorMessageEl.classList.add(this._errorClass);
   }
 
-  _toggleButtonState() {}
+  _hideInputError(inputEls) {
+    errorMessageEl.textContent = inputEls.validationMessage;
+  }
 
-  _hasInvalidInput() {}
+  _toggleButtonState(inputEls) {
+    if (this._hasInvalidInput(inputEls)) {
+      this._disableButton(
+        this._submitButtonSelector,
+        this._inactiveButtonClass
+      );
+      return;
+    }
 
-  _checkInputValidity() {}
+    this._enableButton(this._submitButtonSelector, this._inactiveButtonClass);
+  }
 
-  _setEventListeners() {
+  _hasInvalidInput() {
+    return this._inputEls.every((input) => input.validity.valid);
+  }
+
+  _checkInputValidity() {
+    if (!inputEls.validity.valid) {
+      this._showInputError(inputEls);
+    } else {
+      this._hideInputError(inputEls);
+    }
+  }
+
+  _setEventListeners(formEl, options) {
     this._inputEls = Array.from(
       this.form.querySelectorAll(this._inputSelector)
     );
@@ -37,11 +59,11 @@ class FormValidator {
   }
 
   enableValidation() {
-    this._form.addEventListener("submit", (e) => {
+    this.form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
 
-    setEventListeners(formEl, options);
+    setEventListeners(form, options);
   }
 }
 
