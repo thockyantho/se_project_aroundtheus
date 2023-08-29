@@ -28,8 +28,6 @@ class Card {
         this._handleTrashButton();
       });
 
-    this._element.querySelector(".card__image");
-
     this._element
       .querySelector(".card__image")
       .addEventListener("click", () => {
@@ -67,6 +65,7 @@ class Card {
     this._element = this._getTemplate();
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__title").textContent = this._name;
+    this._element.querySelector(".card__title").alt = this._name;
     this._setEventListeners();
 
     return this._element;
@@ -74,18 +73,3 @@ class Card {
 }
 
 export default Card;
-
-// _setEventListeners() {
-//   this._likeButton.addEventListener("click", () => {
-//     likeButton.classList.toggle("card__like-button_active");
-//   });
-//   trashButton.addEventListener("click", () => {
-//     cardElement.remove();
-//   });
-//   cardImageEl.addEventListener("click", () => {
-//     openModal(previewImageModal);
-//     imgPreview.src = cardData.link;
-//     titlePreview.textContent = cardData.name;
-//     altPreview.alt = cardData.name;
-//   });
-// }
