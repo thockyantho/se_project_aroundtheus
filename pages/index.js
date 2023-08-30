@@ -171,10 +171,7 @@ initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 [profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
   modal.addEventListener("mousedown", (event) => {
-    if (
-      event.target.classList.contains("modal") ||
-      event.target.classList.contains("modal__button")
-    ) {
+    if (event.target.classList.contains("modal")) {
       closeModal(modal);
     }
   });
