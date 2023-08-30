@@ -41,7 +41,7 @@ const profileDescription = document.querySelector(".profile__description");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
 
 // const profileForm = document.forms["profile-form"];
-// const cardForm = addCardModal.querySelector["#add-card-form"];
+// const cardForm = document.forms["card-form"];
 
 const cardListEl = document.querySelector(".cards__card-list");
 
@@ -88,9 +88,9 @@ const addFormValidator = new FormValidator(config, addCardFormElement);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-// const formValidators = {};
+const formValidators = {};
 
-// // enable validation
+// enable validation
 // const enableValidation = (config) => {
 //   const formList = Array.from(document.querySelectorAll(config.formSelector));
 //   formList.forEach((formElement) => {
