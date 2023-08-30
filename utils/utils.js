@@ -18,14 +18,3 @@ export const handleEscUp = (evt) => {
     closeModal(activeModal);
   }
 };
-
-[profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
-  modal.addEventListener("mousedown", (event) => {
-    if (
-      event.target.classList.contains("modal") ||
-      event.target.classList.contains("modal__button")
-    ) {
-      closeModal(modal);
-    }
-  });
-});
