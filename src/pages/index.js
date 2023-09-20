@@ -1,7 +1,7 @@
-import Card from "../../../components/Card.js";
-import FormValidator from "../../../components/FormValidator.js";
-
-import { closeModal, openModal } from "../../../utils/utils.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import "../pages/index.css";
+import { closeModal, openModal } from "../utils/utils.js";
 /*----------------------------------------------*/
 /*                  Elements                    */
 /*----------------------------------------------*/
@@ -89,7 +89,7 @@ const addFormValidator = new FormValidator(config, addCardFormElement);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-const formValidators = {};
+// const formValidators = {};
 
 // enable validation
 // const enableValidation = (config) => {
