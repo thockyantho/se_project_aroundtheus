@@ -1,17 +1,7 @@
-// import { openModal } from "../utils/utils.js";
-// import Popup from "./Popup.js";
-
-// const previewImageModal = document.querySelector("#preview-image");
-// const imgPreview = previewImageModal.querySelector(
-//   ".modal__card-image-preview"
-// );
-// const titlePreview = previewImageModal.querySelector(".modal__title-preview");
-// const altPreview = previewImageModal.querySelector("#preview-image-of-modal");
-
 class Card {
-  constructor({ data, handleImageClick }, cardSelector) {
-    this._name = data.name;
-    this._link = data.link;
+  constructor({ name, link }, cardSelector, handleImageClick) {
+    this._name = name;
+    this._link = link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
   }
@@ -29,11 +19,9 @@ class Card {
         this._handleTrashButton();
       });
 
-    this._cardImage
-      .querySelector(".card__image")
-      .addEventListener("click", () => {
-        this._handleImageClick({ link: this._link, name: this._name });
-      });
+    this._cardImage.addEventListener("click", () => {
+      this._handleImageClick({ link: this._link, name: this._name });
+    });
   }
 
   _handleLikeIcon() {
@@ -46,12 +34,6 @@ class Card {
     this._element.remove();
     this._element = null;
   }
-  // _handlePreviewPicture() {
-  //   imgPreview.src = this._link;
-  //   altPreview.alt = this._name;
-  //   titlePreview.textContent = this._name;
-  //   openModal(previewImageModal);
-  // }
 
   _getTemplate() {
     return document
