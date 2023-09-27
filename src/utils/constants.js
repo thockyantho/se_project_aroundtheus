@@ -38,7 +38,7 @@ export const selectors = {
 };
 // export const previewImage = ".modal__card-image-preview";
 
-export const config = {
+export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",

@@ -1,9 +1,9 @@
 class Card {
-  constructor({ name, link }, cardSelector, handleImageClick) {
+  constructor({ name, link }, cardSelector, handlePreviewImage) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
-    this._handleImageClick = handleImageClick;
+    this._handlePreviewImage = handlePreviewImage;
   }
 
   _setEventListeners() {
