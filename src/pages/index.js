@@ -75,36 +75,36 @@ addNewCardButton.addEventListener("click", () => {
 
 function renderCard(cardData) {
   const card = new Card(cardData, selectors.cardTemplate, (imgData) => {
-    cardPreviewImageModal.open(imgData);
+    cardPreviewPopup.open(imgData);
   });
 
   return card.getView();
 }
 
-const CardPreviewPopup = new PopupWithImage(selectors.previewPopup);
+const cardPreviewPopup = new PopupWithImage(selectors);
 
-const CardSection = new Section(
+const cardSection = new Section(
   {
     items: initialCards,
     renderer: (data) => {
-      const cardEl = new Card(
+      const card = new Card(
         {
           data,
           handleImageClick: (imgData) => {
-            CardPreviewPopup.open(imgData);
+            cardPreviewPopup.open(imgData);
           },
         },
         selectors.cardTemplate
       );
-      CardSection.addItem(cardEl.getView());
+      cardSection.addItem(card.getView());
     },
   },
   selectors.cardSection
 );
 
 // Initiallize all my instances
-CardSection.renderItems(initialCards);
-CardPreviewPopup.setEventListeners();
+cardSection.renderItems();
+cardPreviewPopup.setEventListeners();
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
 
@@ -121,5 +121,5 @@ const formProfileEditModal = new PopupWithForm(
 );
 formProfileEditModal.setEventListeners();
 
-export { CardPreviewPopup };
+export { cardPreviewPopup };
 export { formProfileEditModal };
