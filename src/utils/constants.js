@@ -36,7 +36,7 @@ export const selectors = {
   userInfoProfileTitle: "#profile-name-input",
   userInfoProfileDescription: "#profile-description-input",
 };
-export const previewImage = ".modal__card-image-preview";
+// export const previewImage = ".modal__card-image-preview";
 
 export const config = {
   formSelector: ".modal__form",
