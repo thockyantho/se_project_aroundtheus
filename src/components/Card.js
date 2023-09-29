@@ -8,22 +8,20 @@ export default class Card {
 
   _setEventListeners() {
     this._cardElement
-      .querySelector(".card__like-button")
-      .addEventListener("click", () => {
-        this._handleLikeIcon();
-      });
-
-    this._cardElement
-      .querySelector(".card__trash-button")
-      .addEventListener("click", () => {
-        this._handleTrashButton();
-      });
-
-    this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleImageClick(this._name, this._link);
+        this._handlePreviewImage(this._name, this._link);
       });
+    // this._likeButton = this._cardElement.querySelector(".card__like-button");
+    // this._likeButton.addEventListener("click", () => {
+    //   this._handleLikeIcon();
+    // });
+
+    // this._cardElement
+    //   .querySelector(".card__trash-button")
+    //   .addEventListener("click", () => {
+    //     this._handleTrashButton();
+    //   });
   }
 
   _handleLikeIcon() {
@@ -37,18 +35,31 @@ export default class Card {
     this._cardElement = null;
   }
 
-  // _getTemplate() {
-  //   return document
-  //     .querySelector(this._cardSelector)
-  //     .content.querySelector(".card")
-  //     .cloneNode(true);
-  // }
-
-  getView() {
-    this._cardElement = document
+  _getTemplate() {
+    return document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+  }
+
+  getView() {
+    // this._cardElement = document
+    //   .querySelector(this._cardSelector)
+    //   .content.querySelector(".card")
+    //   .cloneNode(true);
+
+    this._cardElement = this._getTemplate();
+
+    // select like button
+    this._likeButton = this._cardElement.querySelector(".card__like-button");
+    this._likeButton.addEventListener("click", () => {
+      this._handleLikeIcon();
+    });
+    // select delete
+    this._trashButton = this._cardElement.querySelector(".card__trash-button");
+    this._trashButton.addEventListener("click", () => {
+      this._handleTrashIcon();
+    });
 
     this._cardElement.querySelector(".card__image").src = this._link;
     this._cardElement.querySelector(".card__image").alt = this._name;
