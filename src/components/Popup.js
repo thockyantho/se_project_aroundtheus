@@ -1,6 +1,7 @@
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
+    this._cardImage = document.querySelector(".modal__card-image-preview");
   }
 
   open() {

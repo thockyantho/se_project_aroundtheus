@@ -3,8 +3,10 @@ import Popup from "./Popup";
 export default class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super({ popupSelector });
-    this._cardImage = document.querySelector(".modal__card-image-preview");
-    this._cardTitle = document.querySelector(".modal__title-preview");
+    this._cardImageEl = this._popupElement.querySelector(".preview-image");
+    this._cardTitleCaption = this._popupElement.querySelector(
+      ".modal__title-preview"
+    );
   }
   // constructor({ previewImageModal, previewImage, previewImageTitle }) {
   //   super(previewImageModal);
@@ -12,10 +14,10 @@ export default class PopupWithImage extends Popup {
   //   this._title = this._popupElement.querySelector(previewImageTitle);
   // }
 
-  open({ name, link }) {
-    this._cardImage.src = link;
-    this._cardImage.alt = name;
-    this._cardTitle.textContent = name;
+  open(data) {
+    this._cardImage.src = data._link;
+    this._cardImage.alt = data._name;
+    this._cardTitle.textContent = data._name;
     super.open();
   }
 }
