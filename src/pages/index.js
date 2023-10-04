@@ -73,8 +73,6 @@ function fillProfileForm() {
   profileDescriptionInput.value = userData.description;
 }
 
-const userInfo = new UserInfo(profileTitle, profileDescription);
-
 function handleProfileEditSubmit(formData) {
   userInfo.setUserInfo(formData.name, formData.description);
   profileForm.close();
@@ -102,11 +100,22 @@ const cardSection = new Section(
 
 cardSection.renderItems();
 
+// form popup
 const addCardForm = new PopupWithForm(
   "#add-card-modal",
   handleCardAddFormSubmit
 );
 addCardForm.setEventListeners();
+
+//profie edit popup
+
+const userInfo = new UserInfo(profileTitle, profileDescription);
+const profileForm = new PopupWithForm(
+  "#profile-edit-modal",
+  handleProfileEditSubmit
+);
+
+profileForm.setEventListeners();
 
 const editFormValidator = new FormValidator(settings, profileEditForm);
 const addFormValidator = new FormValidator(settings, addCardFormElement);
@@ -121,16 +130,9 @@ function handleCardAddFormSubmit({ title, url }) {
   renderCard(cardData);
 }
 
-const profileForm = new PopupWithForm(
-  "#profile-edit-modal",
-  handleProfileEditSubmit
-);
-
-profileForm.setEventListeners();
-
 addNewCardButton.addEventListener("click", () => {
-  addCardForm.open();
   addFormValidator.toggleButtonState();
+  addCardForm.open();
 });
 
 const popupWithImage = new PopupWithImage("#preview-image");
