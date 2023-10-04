@@ -12,16 +12,6 @@ export default class Card {
       .addEventListener("click", () => {
         this._handlePreviewImage(this._name, this._link);
       });
-    // this._likeButton = this._cardElement.querySelector(".card__like-button");
-    // this._likeButton.addEventListener("click", () => {
-    //   this._handleLikeIcon();
-    // });
-
-    // this._cardElement
-    //   .querySelector(".card__trash-button")
-    //   .addEventListener("click", () => {
-    //     this._handleTrashButton();
-    //   });
   }
 
   _handleLikeIcon() {
@@ -43,11 +33,6 @@ export default class Card {
   }
 
   getView() {
-    // this._cardElement = document
-    //   .querySelector(this._cardSelector)
-    //   .content.querySelector(".card")
-    //   .cloneNode(true);
-
     this._cardElement = this._getTemplate();
 
     // select like button
