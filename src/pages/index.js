@@ -122,11 +122,7 @@ const addFormValidator = new FormValidator(settings, addCardFormElement);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-function handleCardAddFormSubmit({ title, url }) {
-  const cardData = {
-    name: title,
-    link: url,
-  };
+function handleCardAddFormSubmit(cardData) {
   renderCard(cardData);
 }
 
