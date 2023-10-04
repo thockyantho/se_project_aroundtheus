@@ -1,6 +1,6 @@
-# Project 3: Around The U.S.
+# Project 8: Around The U.S.
 
-In this project we work with a Figma design that provides layouts for mobile (320px) and desktop (1280px). Building on the last project where we laid out the sturcture and design on the webpage, we've features to the project by making it functional.
+In this project, we continue refactoring. We create a few more classes and couple them together. At the end of the project, we've set up project bundling and building with Webpack.
 
 ### Overview
 
@@ -10,7 +10,10 @@ In this project we work with a Figma design that provides layouts for mobile (32
 
 **Intro**
 
-The user can write a custom name for the card and add a link to a picture. If the user clicks on the "Like" button, the heart changes its color, add a delete icon to the cards. Once a user clicks on a picture, the modal box with that picture opens. When they click "Close," it closes. All the modal boxes smoothly appear out from transparency, and when being closed, they smoothly become completely transparent again.
+Add the Section, Popup, PopupWithForm, PopupWithImages, and UserInfo classes to your project. Each class should perform one specific task. All logic related to a specific task must be encapsulated in its respective class.
+If you need to combine any classes, do it using loose coupling. See Lesson 5 for details.
+All classes have to be stored in separate files.
+The index.js file must contain only the code for creating class instances and adding specific event listeners, and all such code should only be placed in index.js.
 
 ## Project features
 
