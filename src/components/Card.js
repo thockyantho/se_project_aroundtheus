@@ -43,7 +43,7 @@ export default class Card {
     // select delete
     this._trashButton = this._cardElement.querySelector(".card__trash-button");
     this._trashButton.addEventListener("click", () => {
-      this._handleTrashIcon();
+      this._handleTrashButton();
     });
 
     this._cardElement.querySelector(".card__image").src = this._link;
