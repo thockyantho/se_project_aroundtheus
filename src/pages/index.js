@@ -13,9 +13,7 @@ import { initialCards, settings } from "../utils/constants";
 /*                               Element                                     */
 /*---------------------------------------------------------------------------*/
 
-const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditButton = document.querySelector("#profile-edit-button");
-const addCardModal = document.querySelector("#add-card-modal");
 const addNewCardButton = document.querySelector(".profile__add-button");
 
 const profileTitle = document.querySelector(".profile__title");
@@ -25,8 +23,8 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-const addCardFormElement = addCardModal.querySelector(".modal__form");
+const profileEditForm = document.forms["profile-form"];
+const cardForm = document.forms["card-form"];
 
 function createCard(data) {
   const cardElement = new Card(data, "#card-template", handlePreviewImage);
@@ -83,7 +81,7 @@ const profileForm = new PopupWithForm(
 profileForm.setEventListeners();
 
 const editFormValidator = new FormValidator(settings, profileEditForm);
-const addFormValidator = new FormValidator(settings, addCardFormElement);
+const addFormValidator = new FormValidator(settings, cardForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
