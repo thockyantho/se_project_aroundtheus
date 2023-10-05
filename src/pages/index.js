@@ -44,7 +44,7 @@ function handleProfileEditSubmit(formData) {
 const handleEditClick = () => {
   fillProfileForm();
   profileForm.open();
-  editFormValidator.toggleButtonState();
+  profileFormValidator.toggleButtonState();
 };
 profileEditButton.addEventListener("click", handleEditClick);
 
@@ -98,17 +98,12 @@ enableValidation(settings);
 const profileFormValidator = formValidators["profile-form"];
 profileFormValidator.resetValidation();
 
-const editFormValidator = new FormValidator(settings, profileEditForm);
-const addFormValidator = new FormValidator(settings, cardForm);
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
-
 function handleCardAddFormSubmit(cardData) {
   renderCard(cardData);
 }
 
 addNewCardButton.addEventListener("click", () => {
-  addFormValidator.toggleButtonState();
+  profileFormValidator.toggleButtonState();
   addCardForm.open();
 });
 
