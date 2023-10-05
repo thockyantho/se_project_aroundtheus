@@ -80,6 +80,24 @@ const profileForm = new PopupWithForm(
 
 profileForm.setEventListeners();
 
+const formValidators = {};
+
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement);
+    const formName = formElement.getAttribute("name");
+
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(settings);
+
+const profileFormValidator = formValidators["profile-form"];
+profileFormValidator.resetValidation();
+
 const editFormValidator = new FormValidator(settings, profileEditForm);
 const addFormValidator = new FormValidator(settings, cardForm);
 editFormValidator.enableValidation();
