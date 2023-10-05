@@ -195,4 +195,10 @@
   .modal__container {
     width: 282px;
   }
+  .modal__close {
+    bottom: calc(100% + 15px);
+    left: calc(100% - 30px);
+    height: 26px;
+    width: 26px;
+  }
 }
