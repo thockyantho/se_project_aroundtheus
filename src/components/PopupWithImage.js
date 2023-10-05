@@ -8,11 +8,6 @@ export default class PopupWithImage extends Popup {
     );
     this._cardTitle = this._popupElement.querySelector(".modal__title-preview");
   }
-  // constructor({ previewImageModal, previewImage, previewImageTitle }) {
-  //   super(previewImageModal);
-  //   this._image = this._popupElement.querySelector(previewImage);
-  //   this._title = this._popupElement.querySelector(previewImageTitle);
-  // }
 
   open(name, link) {
     this._cardImage.src = link;
