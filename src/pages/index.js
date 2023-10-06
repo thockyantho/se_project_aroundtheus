@@ -28,21 +28,17 @@ const cardForm = document.forms["card-form"];
 
 function createCard(data) {
   const cardElement = new Card(data, "#card-template", handlePreviewImage);
-
   return cardElement.getView();
 }
 
 function fillProfileForm() {
   const userData = userInfo.getUserInfo();
-
   profileNameInput.value = userData.name;
-
   profileDescriptionInput.value = userData.description;
 }
 
 function handleProfileEditSubmit(formData) {
   userInfo.setUserInfo(formData.name, formData.description);
-
   profileForm.close();
 }
 
@@ -56,7 +52,6 @@ profileEditButton.addEventListener("click", handleEditClick);
 
 const renderCard = (cardData) => {
   const newCard = createCard(cardData);
-
   cardSection.addItem(newCard);
 };
 
@@ -106,7 +101,6 @@ function handleCardAddFormSubmit(cardData) {
 
 addNewCardButton.addEventListener("click", () => {
   addFormValidator.toggleButtonState();
-
   addCardForm.open();
 });
 
