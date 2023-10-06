@@ -28,51 +28,63 @@ const cardForm = document.forms["card-form"];
 
 function createCard(data) {
   const cardElement = new Card(data, "#card-template", handlePreviewImage);
+
   return cardElement.getView();
 }
+
 function fillProfileForm() {
   const userData = userInfo.getUserInfo();
+
   profileNameInput.value = userData.name;
+
   profileDescriptionInput.value = userData.description;
 }
 
 function handleProfileEditSubmit(formData) {
   userInfo.setUserInfo(formData.name, formData.description);
+
   profileForm.close();
 }
 
 const handleEditClick = () => {
   fillProfileForm();
   profileForm.open();
-  profileFormValidator.toggleButtonState();
+  editFormValidator.toggleButtonState();
 };
+
 profileEditButton.addEventListener("click", handleEditClick);
 
 const renderCard = (cardData) => {
   const newCard = createCard(cardData);
+
   cardSection.addItem(newCard);
 };
 
 const cardSection = new Section(
   {
     items: initialCards,
+
     renderer: renderCard,
   },
+
   ".cards__card-list"
 );
 
 cardSection.renderItems();
 
 // form popup
+
 const addCardForm = new PopupWithForm(
   "#add-card-modal",
   handleCardAddFormSubmit
 );
+
 addCardForm.setEventListeners();
 
 //profie edit popup
 
 const userInfo = new UserInfo(profileTitle, profileDescription);
+
 const profileForm = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit
@@ -80,34 +92,26 @@ const profileForm = new PopupWithForm(
 
 profileForm.setEventListeners();
 
-const formValidators = {};
+const editFormValidator = new FormValidator(settings, profileEditForm);
+const addFormValidator = new FormValidator(settings, cardForm);
 
-const enableValidation = (config) => {
-  const formList = Array.from(document.querySelectorAll(config.formSelector));
-  formList.forEach((formElement) => {
-    const validator = new FormValidator(config, formElement);
-    const formName = formElement.getAttribute("name");
-
-    formValidators[formName] = validator;
-    validator.enableValidation();
-  });
-};
-
-enableValidation(settings);
-
-const profileFormValidator = formValidators["profile-form"];
-profileFormValidator.resetValidation();
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+editFormValidator.resetValidation();
+addFormValidator.resetValidation();
 
 function handleCardAddFormSubmit(cardData) {
   renderCard(cardData);
 }
 
 addNewCardButton.addEventListener("click", () => {
-  profileFormValidator.toggleButtonState();
+  addFormValidator.toggleButtonState();
+
   addCardForm.open();
 });
 
 const popupWithImage = new PopupWithImage("#preview-image");
+
 popupWithImage.setEventListeners();
 
 function handlePreviewImage(name, link) {
