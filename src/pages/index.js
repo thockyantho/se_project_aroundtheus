@@ -8,10 +8,44 @@ import PopupWithImage from "../components/PopupWithImage";
 import PopupWithForm from "../components/PopupWithForm";
 import UserInfo from "../components/UserInfo";
 import { initialCards, settings } from "../utils/constants";
-
+import Api from "../components/Api";
 /*---------------------------------------------------------------------------*/
 /*                               Element                                     */
 /*---------------------------------------------------------------------------*/
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "8591f7fe-0114-4a2f-84de-cfb13be7817c",
+  },
+});
+
+api
+  .getInitialCards()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+api
+  .getUserInfoAndCards()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+api
+  .addNewCard()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const addNewCardButton = document.querySelector(".profile__add-button");
