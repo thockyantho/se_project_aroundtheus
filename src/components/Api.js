@@ -1,21 +1,20 @@
 export default class Api {
   constructor(options) {
     this.baseUrl = options.baseUrl;
-    this.headers = options.headers;
+    this.headers = {
+      authorization: options.headers.authorization,
+      "Content-Type": "application/json",
+    };
   }
 
   getInitialCards() {
     return fetch(`${this.baseUrl}/cards`, {
       method: "GET",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
     }).then((res) => {
       if (res.ok) {
         return res.json();
       }
-
       return Promise.reject(`Error: ${res.status}`);
     });
   }
@@ -23,10 +22,7 @@ export default class Api {
   getUserInfo() {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
     }).then((res) => {
       if (res.ok) {
         return res.json();
@@ -50,10 +46,7 @@ export default class Api {
     console.log(`!! updateProfileInfo, ${inputValues}`);
     return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
       body: JSON.stringify({
         name: inputValues.name,
         about: inputValues.about,
@@ -67,13 +60,9 @@ export default class Api {
   }
 
   addNewCard(inputValues) {
-    console.log(`${inputValues}`);
     return fetch(`${this.baseUrl}/cards`, {
       method: "POST",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
       body: JSON.stringify(inputValues),
     }).then((res) => {
       if (res.ok) {

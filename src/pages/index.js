@@ -39,14 +39,14 @@ api
     console.error(err);
   });
 
-api
-  .addNewCard()
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// api
+//   .addNewCard()
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const addNewCardButton = document.querySelector(".profile__add-button");
