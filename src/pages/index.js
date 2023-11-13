@@ -72,9 +72,23 @@ function fillProfileForm() {
   profileDescriptionInput.value = userData.description;
 }
 
-function handleProfileEditSubmit(formData) {
-  userInfo.setUserInfo(formData.name, formData.description);
-  profileForm.close();
+function handleProfileEditSubmit(inputValues) {
+  console.log("attempting to submit");
+  api
+    .updateProfileInfo(inputValues)
+    .then(() => {
+      userInfo.setUserInfo(inputValues);
+      profileForm.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      // profileForm.renderLoading("Save");
+      console.log("done");
+    });
+  // userInfo.setUserInfo(formData.name, formData.description);
+  // profileForm.close();
 }
 
 const handleEditClick = () => {
@@ -143,4 +157,23 @@ popupWithImage.setEventListeners();
 
 function handlePreviewImage(name, link) {
   popupWithImage.open(name, link);
+}
+
+function handleDeleteClick(card) {
+  deleteCardPopup.open();
+  deleteCardPopup.setSubmitAction(() => {
+    deleteCardPopup.renderLoading(true);
+    api
+      .deleteCard(card.cardId)
+      .then(() => {
+        card.handleDeleteCard();
+        deleteCardPopup.close();
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        deleteCardPopup.renderLoading(false);
+      });
+  });
 }

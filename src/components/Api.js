@@ -71,4 +71,18 @@ export default class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+
+  deleteCard(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this.headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else if (res.status === 204) {
+        return { message: "This post has been deleted" };
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
 }
