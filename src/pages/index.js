@@ -84,7 +84,7 @@ function handleProfileEditSubmit(inputValues) {
       console.log(err);
     })
     .finally(() => {
-      // profileForm.renderLoading("Save");
+      profileForm.renderLoading("Save");
       console.log("done");
     });
   // userInfo.setUserInfo(formData.name, formData.description);
