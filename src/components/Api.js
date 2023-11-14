@@ -25,16 +25,16 @@ export default class Api {
     }).then(this._checkRequest);
   }
 
-  getUserInfoAndCards() {
-    return Promise.all([this.getUserInfo(), this.getInitialCards()])
-      .then(([userInfo, cards]) => {
-        return { userInfo, cards };
-      })
-      .catch((err) => {
-        console.error(err);
-        throw err;
-      });
-  }
+  // getUserInfoAndCards() {
+  //   return Promise.all([this.getUserInfo(), this.getInitialCards()])
+  //     .then(([userInfo, cards]) => {
+  //       return { userInfo, cards };
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       throw err;
+  //     });
+  // }
 
   updateProfileInfo(inputValues) {
     return fetch(`${this.baseUrl}/users/me`, {
@@ -84,13 +84,5 @@ export default class Api {
         avatar: newAvatar,
       }),
     }).then(this._checkRequest);
-  }
-
-  updatingLikeStatus(isLiked, cardId) {
-    if (isLiked) {
-      return this.deletingLikes(cardId);
-    } else {
-      return this.addingLikes(cardId);
-    }
   }
 }
