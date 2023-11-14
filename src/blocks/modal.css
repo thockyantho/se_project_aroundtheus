@@ -152,6 +152,20 @@
   border: solid 1px #000;
 }
 
+.modal__confirmation-container {
+  width: 430px;
+}
+
+.modal__heading-confirmation {
+  position: relative;
+  left: 36px;
+}
+
+.modal__button-delete_save {
+  margin: 0px;
+  color: #fff;
+}
+
 @media screen and (max-width: 640px) {
   .modal__container {
     padding: 22px;
