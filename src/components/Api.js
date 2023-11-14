@@ -73,7 +73,7 @@ export default class Api {
     return fetch(`${baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this.headers,
-    });
+    }).then(this._checkRequest);
   }
 
   updatingAvatar(image) {
