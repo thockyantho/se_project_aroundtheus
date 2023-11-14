@@ -76,14 +76,14 @@ export default class Api {
     }).then(this._checkRequest);
   }
 
-  updatingAvatar(image) {
+  updatingAvatar(newAvatar) {
     return fetch(`${this.baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this.headers,
       body: JSON.stringify({
-        avatar: image,
+        avatar: newAvatar,
       }),
-    });
+    }).then(this._checkRequest);
   }
 
   updatingLikeStatus(isLiked, cardId) {
