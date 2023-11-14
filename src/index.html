@@ -144,27 +144,28 @@
       </div>
     </div>
 
-    <!-- Trash card modal -->
-    <div class="modal" id="trash-modal">
-      <div class="modal__trash-container modal__container">
-        <form class="modal__form modal__trash-form">
-          <h2 class="modal__trash-title modal__heading">Are you sure?</h2>
-          <button type="submit" class="modal__save-button card__trash-button">
+    <!-- Delete card modal -->
+    <div class="modal" id="delete-modal">
+      <div class="modal__container">
+        <form class="modal__form modal__delete-form">
+          <h2 class="modal__delete-title modal__heading">Are you sure?</h2>
+          <button type="submit" class="modal__button card__trash-button">
             Yes
           </button>
-          <button type="button" class="modal__close"></button>
         </form>
+        <button type="button" class="modal__close"></button>
       </div>
     </div>
 
     <template id="card-template">
       <li class="card">
         <img class="card__image" src="" alt="Photo Image Preview" />
-        <button
-          class="card__trash-button"
-          type="button"
-          title="button"
-        ></button>
+        <!-- <img
+          src="<%=require('./images/Trash.svg')%>"
+          class="card__trash"
+          alt="TrashCan"
+        /> -->
+        <button class="card__trash-button" type="button"></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>

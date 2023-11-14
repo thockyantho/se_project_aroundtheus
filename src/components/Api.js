@@ -69,8 +69,8 @@ export default class Api {
     }).then(this._checkRequest);
   }
 
-  removingLike(cardID) {
-    return fetch(`${baseUrl}/cards/${cardID}/likes`, {
+  removingLike(cardId) {
+    return fetch(`${baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this.headers,
     });
@@ -84,5 +84,13 @@ export default class Api {
         avatar: image,
       }),
     });
+  }
+
+  updatingLikeStatus(isLiked, cardId) {
+    if (isLiked) {
+      return this.deletingLikes(cardId);
+    } else {
+      return this.addingLikes(cardId);
+    }
   }
 }
