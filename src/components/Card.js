@@ -7,11 +7,6 @@ export default class Card {
 
     // frequently accessed elements
     this._cardElement = this._getTemplate();
-    // this._cardElement
-    //   .querySelector(".card__trash")
-    //   .addEventListener("click", () => {
-    //     this._handleTrashButton(this);
-    //   });
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._likeButton = this._cardElement.querySelector(".card__like-button");
     this._trashButton = this._cardElement.querySelector(".card__trash-button");

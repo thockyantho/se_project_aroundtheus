@@ -25,25 +25,11 @@ export default class Api {
     }).then(this._checkRequest);
   }
 
-  // getUserInfoAndCards() {
-  //   return Promise.all([this.getUserInfo(), this.getInitialCards()])
-  //     .then(([userInfo, cards]) => {
-  //       return { userInfo, cards };
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //       throw err;
-  //     });
-  // }
-
-  updateProfileInfo(inputValues) {
+  updateProfileInfo({ name, about }) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
       headers: this.headers,
-      body: JSON.stringify({
-        name: inputValues.name,
-        about: inputValues.about,
-      }),
+      body: JSON.stringify({ name, about }),
     }).then(this._checkRequest);
   }
 
@@ -63,14 +49,14 @@ export default class Api {
   }
 
   addingLike(cardId) {
-    return fetch(`${baseUrl}/cards/${cardId}/likes`, {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this.headers,
     }).then(this._checkRequest);
   }
 
   removingLike(cardId) {
-    return fetch(`${baseUrl}/cards/${cardId}/likes`, {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this.headers,
     }).then(this._checkRequest);

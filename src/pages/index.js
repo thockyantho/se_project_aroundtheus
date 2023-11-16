@@ -22,29 +22,11 @@ const api = new Api({
   },
 });
 
-// api
-//   .getInitialCards()
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
-
-// api
-//   .getUserInfoAndCards()
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
-
 const profileEditButton = document.querySelector("#profile-edit-button");
 const addNewCardButton = document.querySelector(".profile__add-button");
 
-const profileTitle = document.querySelector(".profile__title");
-const profileDescription = document.querySelector(".profile__description");
+// const profileTitle = document.querySelector(".profile__title");
+// const profileDescription = document.querySelector(".profile__description");
 const profileNameInput = document.querySelector("#profile-name-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
@@ -52,9 +34,26 @@ const profileDescriptionInput = document.querySelector(
 
 const profileEditForm = document.forms["profile-form"];
 const cardForm = document.forms["card-form"];
+const avatarImgButton = document.querySelector(".profile__avatar-button");
+const forms = [...document.querySelectorAll(settings.formSelector)];
 
-// const deleteCardPopup = new PopupWithConfirmation("#trash-modal");
-// deleteCardPopup.setEventListeners();
+const userInfo = new UserInfo(
+  document.querySelector(".profile__title"),
+  document.querySelector(".profile__description"),
+  document.querySelector(".profile__avatar")
+);
+
+const formValidators = {};
+const enableValidation = (settings) => {
+  forms.forEach((formElement) => {
+    const validator = new FormValidator(settings, formElement);
+    const formName = formElement.getAttribute("name");
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(settings);
 
 function createCard(data) {
   const cardElement = new Card(
@@ -69,15 +68,71 @@ function createCard(data) {
   return cardElement.getView();
 }
 
-function handlelikes(card) {
-  api
-    .updatingLikeStatus(card.isLiked(), card.getId())
-    .then(() => {
-      card.handleLikeIcon();
+let section;
+
+Promise.all([api.getInitialCards(), api.getUserInfo()])
+  .then(([cardData, userData]) => {
+    section = new Section(
+      {
+        items: cardData,
+        renderer: (item) => {
+          const cardElement = createCard(item);
+          section.addItem(cardElement);
+        },
+      },
+      ".cards__card-list"
+    );
+    section.renderItems();
+
+    userInfo.setUserInfo(userData);
+    userInfo.setAvatar(userData.avatar);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+const popupAvatar = new PopupWithForm("#update-avatar-modal", (userData) => {
+  popupAvatar.saving(true);
+  const avatar = userData.avatar;
+  return api
+    .updateAvatar(avatar)
+    .then((updateAvatar) => {
+      userInfo.setAvatar(updateAvatar.avatar);
     })
+    .then(() => popupAvatar.close())
     .catch((err) => {
-      console.error(err);
-    });
+      console.error("Error:", err);
+    })
+    .finally(() => popupAvatar.saving(false));
+});
+popupAvatar.setEventListeners();
+
+avatarImgButton.addEventListener("click", () => {
+  formValidators["modal-avatar-form"].toggleButtonState();
+  popupAvatar.open();
+});
+
+function handlelikes(item) {
+  const newLikeStatus = !item.isLiked;
+  if (newLikeStatus) {
+    api
+      .likeCard(item.getId())
+      .then((respond) => {
+        item.setLikeStatus(respond.isLiked);
+      })
+      .catch((err) => {
+        console.log("Error:", err);
+      });
+  } else {
+    api
+      .unlikeCard(item.getId())
+      .then((respond) => {
+        item.setLikeStatus(respond.isLiked);
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+      });
+  }
 }
 
 function fillProfileForm() {
@@ -99,12 +154,10 @@ function handleProfileEditSubmit(inputValues) {
   }
   handleCardAddFormSubmit(makeRequest);
 }
-// userInfo.setUserInfo(formData.name, formData.description);
-// profileForm.close();
 
 const handleEditClick = () => {
   fillProfileForm();
-  profileForm.open();
+  popupEditForm.open();
   editFormValidator.resetValidation();
 };
 
@@ -138,13 +191,30 @@ addCardForm.setEventListeners();
 
 //profie edit popup
 
-const userInfo = new UserInfo(profileTitle, profileDescription);
+// const profileForm = new PopupWithForm("#profile-edit-modal", (values) => {
+//   userInfo.setUserInfo(values);
+// });
 
-const profileForm = new PopupWithForm("#profile-edit-modal", (values) => {
-  userInfo.setUserInfo(values);
-});
+// profileForm.setEventListeners();
 
-profileForm.setEventListeners();
+const popupEditForm = new PopupWithForm(
+  "#profile-edit-modal",
+  ({ name, description }) => {
+    popupEditForm.saving(true);
+    return api
+      .updateProfileInfo({ name, description })
+      .then((updateProfileInfo) => {
+        userInformation.setUserInfo(updateProfileInfo);
+        return updateProfileInfo;
+      })
+      .then(() => popupEditForm.close())
+      .catch((err) => {
+        console.error("Error:", err);
+      })
+      .finally(() => popupEditForm.saving(false));
+  }
+);
+popupEditForm.setEventListeners();
 
 const editFormValidator = new FormValidator(settings, profileEditForm);
 const addFormValidator = new FormValidator(settings, cardForm);
@@ -169,21 +239,24 @@ function handlePreviewImage(name, link) {
   popupWithImage.open(name, link);
 }
 
+const popupWithConfirmation = new PopupWithConfirmation({
+  popupSelector: "#modal-delete-confirmation",
+});
+popupWithConfirmation.setEventListeners();
+
 function handleDeleteClick(card) {
-  deleteCardPopup.open();
-  deleteCardPopup.setSubmitAction(() => {
-    deleteCardPopup.renderLoading(true);
+  popupWithConfirmation.open();
+  popupWithConfirmation.setSubmitAction(() => {
+    popupWithConfirmation.deleting(true);
     api
       .deleteCard(card.cardId)
       .then(() => {
         card.handleDeleteCard();
-        deleteCardPopup.close();
+        popupWithConfirmation.close();
       })
       .catch((err) => {
         console.error(err);
       })
-      .finally(() => {
-        deleteCardPopup.setSubmitAction(false);
-      });
+      .finally(() => popupWithConfirmation.setSubmitAction(false));
   });
 }
