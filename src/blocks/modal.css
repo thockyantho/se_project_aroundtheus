@@ -152,10 +152,6 @@
   border: solid 1px #000;
 }
 
-.modal__confirmation-container {
-  width: 430px;
-}
-
 .modal__heading-confirmation {
   position: relative;
   left: 36px;
@@ -164,6 +160,22 @@
 .modal__button-delete_save {
   margin: 0px;
   color: #fff;
+}
+
+.modal__error_description {
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  position: absolute;
+  top: 65%;
+}
+
+.modal__error_title {
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  position: absolute;
+  top: 45%;
 }
 
 @media screen and (max-width: 640px) {
