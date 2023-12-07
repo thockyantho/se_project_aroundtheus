@@ -63,9 +63,9 @@ function enableValidation(formEl, settings) {
 }
 
 window.onload = function () {
-  enableValidation("edit-profile-form", settings);
-  enableValidation("add-card-form", settings);
-  enableValidation("avatar-modal-form", settings);
+  enableValidation(document.forms["modal-edit-profile-form"], settings);
+  enableValidation(document.forms["modal-add-card-form"], settings);
+  enableValidation(document.forms["avatar-modal-form"], settings);
 };
 
 function createCard(data) {
