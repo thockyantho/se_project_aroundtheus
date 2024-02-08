@@ -27,14 +27,16 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 const addNewCardButton = document.querySelector(".profile__add-button");
 
 // const profileTitle = document.querySelector(".profile__title");
-const profileDescription = document.querySelector(".profile__description");
+// const profileDescription = document.querySelector(".profile__description");
 const profileNameInput = document.querySelector("#profile-name-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
+const profileAvatarInput = document.querySelector("#profile-avatar-image");
 
 const profileEditForm = document.forms["modal-edit-profile-form"];
 const cardForm = document.forms["card-form"];
+const avatarImage = document.querySelector("#profile-avatar-image");
 const avatarImgButton = document.querySelector(".profile__avatar-button");
 
 const userInfo = new UserInfo(
@@ -176,6 +178,7 @@ function fillProfileForm() {
   const userData = userInfo.getUserInfo();
   profileNameInput.value = userData.name;
   profileDescriptionInput.value = userData.description;
+  profileAvatarInput.value = userData.src;
 }
 
 function handleProfileEditSubmit(inputValues) {
