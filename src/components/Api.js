@@ -38,12 +38,7 @@ export default class Api {
       method: "POST",
       headers: this.headers,
       body: JSON.stringify(inputValues),
-    })
-      .then(this._checkRequest)
-      .catch((error) => {
-        console.error("Error adding new card:", error); // Log the error
-        throw error; // Re-throw the error to propagate it further
-      });
+    }).then(this._checkRequest);
   }
 
   deleteCard(cardId) {

@@ -58,7 +58,6 @@ function enableValidation(formEl, settings) {
     console.error("Invalid form element provided:", formEl);
     return;
   }
-  console.log(formEl);
   const validator = new FormValidator(settings, formEl);
   const formName = formEl.getAttribute("name");
   formValidators[formName] = validator;
@@ -200,17 +199,6 @@ const handleEditClick = () => {
 };
 
 profileEditButton.addEventListener("click", handleEditClick);
-
-// profileEditButton.addEventListener("click", () => {
-//   const userData = userInfo.getUserInfo();
-//   popupEditForm.setInputValues(userData);
-//   popupEditForm.open();
-// });
-
-// profileAddButton.addEventListener("click", () => {
-//   formValidators["add-card-form"].toggleButtonState();
-//   newCardPopup.open();
-// });
 
 const renderCard = (cardData) => {
   const newCard = createCard(cardData);
