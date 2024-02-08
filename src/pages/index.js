@@ -44,8 +44,12 @@ const userInfo = new UserInfo(
 );
 
 const popupWithImage = new PopupWithImage("#preview-image");
+const newCardPopup = new PopupWithForm(
+  "#add-card-modal",
+  handleCardAddFormSubmit
+);
 
-popupWithImage.setEventListeners();
+newCardPopup.setEventListeners();
 
 const formValidators = {};
 
@@ -61,10 +65,7 @@ function enableValidation(formEl, settings) {
   validator.enableValidation();
   return validator;
 }
-// let editFormValidator;
-// let addFormValidator;
 
-// window.onload = function () {
 let editFormValidator = enableValidation(
   document.forms["modal-edit-profile-form"],
   settings
@@ -74,7 +75,6 @@ let addFormValidator = enableValidation(
   settings
 );
 enableValidation(document.forms["avatar-modal-form"], settings);
-// };
 
 function createCard(data) {
   const cardElement = new Card(
@@ -94,7 +94,7 @@ function createCard(data) {
 function handleCardAddFormSubmit(data) {
   newCardPopup.saving(true);
   api
-    .postNewCard(data)
+    .addNewCard(data)
     .then((card) => {
       const cardInput = createCard(card);
       section.addItem(cardInput);
