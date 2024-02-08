@@ -245,7 +245,6 @@ const popupEditForm = new PopupWithForm(
 popupEditForm.setEventListeners();
 
 addNewCardButton.addEventListener("click", () => {
-  // addFormValidator.resetValidation();
   addCardForm.open();
 });
 
