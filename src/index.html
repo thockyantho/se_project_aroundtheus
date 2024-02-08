@@ -164,6 +164,17 @@
       </div>
     </div>
 
+    <!-- Trash Button Popup -->
+    <div class="modal" id="trash-popup">
+      <div class="modal__container-trash">
+        <form class="modal__form">
+          <button class="modal__close" type="button"></button>
+          <h2 class="modal__heading-trash">Are you sure?</h2>
+          <button class="modal__button" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+
     <!-- Edit Avatar Modal -->
 
     <div class="modal" id="update-avatar-modal">
@@ -225,14 +236,9 @@
     <template id="card-template">
       <li class="card">
         <img class="card__image" src="" alt="Photo Image Preview" />
-        <!-- <img
-          src="<%=require('./images/Trash.svg')%>"
-          class="card__trash"
-          alt="TrashCan"
-        /> -->
-        <button class="card__trash-button" type="button"></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
+          <button class="card__trash-button" type="button"></button>
           <button class="card__like-button" type="button"></button>
         </div>
       </li>

@@ -1,6 +1,5 @@
 class FormValidator {
   constructor(settings, formEl) {
-    console.log("formEl:", formEl);
     this._inputSelector = ".modal__input";
     this._submitButtonSelector = ".modal__button";
     this._inactiveButtonClass = "modal__button_disabled";
