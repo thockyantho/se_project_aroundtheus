@@ -1,80 +1,22 @@
 .cards {
-  padding: 15px 0 0;
+  max-width: 880px;
+  margin: 0;
 }
 
-.cards__card-list {
+.cards__list {
   display: grid;
-  justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
+  grid-template-rows: repeat(auto-fit, 361px);
   grid-gap: 20px 17px;
-  list-style-type: none;
+  justify-content: center;
   padding: 0;
   margin: 0;
 }
 
-/* <li class="card">
-              <img
-                class="card__image"
-                src="./images/yosemite.jpg"
-                alt="Yosemite Valley"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Yosemite Valley</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/lake-louise.jpg"
-                alt="Lake Louise"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lake Louise</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/bald-mountains.jpg"
-                alt="Bald Mountains"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Bald Mountains</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/latemar.jpg"
-                alt="Latemar"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Latemar</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/vanoise.jpg"
-                alt="Vanoise National Park"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Vanoise National Park</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/lago.jpg"
-                alt="Lagos di Braies"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lagos di Braies</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li> */
+@media screen and (max-width: 350px) {
+  .cards {
+    max-width: 282px;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}

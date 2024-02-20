@@ -1,32 +1,30 @@
-import Popup from "./Popup";
+import Popup from "./Popup.js";
 
-export default class PopupWithConfirmation extends Popup {
-  constructor({ popupSelector }) {
-    super(popupSelector);
-    this._deletePopup = this._popupElement.querySelector(".modal__form");
-    this._deleteConfirmSubmit = this._popupElement.querySelector(
-      ".modal__button-delete_save"
-    );
-    this._deleteSubmitConfimText = this._deleteConfirmSubmit.textContent;
+export default class PopupConfirmation extends Popup {
+  constructor(popupSelector) {
+    super({ popupSelector });
+    this._form = this._popupElement.querySelector(".modal__form");
+    this._deleteSubmitBtn = this._popupElement.querySelector("#confirm-button");
   }
 
-  setSubmitAction(action) {
-    this.handleConfirmAction = action;
+  setSubmitAction(handler) {
+    this._handleSubmit = handler;
+  }
+
+  setDeleteLoading(loading) {
+    if (loading) {
+      this._deleteSubmitBtn.textContent = "Deleting...";
+    } else {
+      this._deleteSubmitBtn.textContent = "Yes";
+    }
   }
 
   setEventListeners() {
     super.setEventListeners();
-    this._deletePopup.addEventListener("submit", (e) => {
+
+    this._form.addEventListener("submit", (e) => {
       e.preventDefault();
-      this._handleConfirmAction(e);
+      this._handleSubmit();
     });
   }
-
-  deleting = (deleting, deletingText = "Deleting...") => {
-    if (deleting) {
-      this._deleteConfirmSubmit.textContent = deletingText;
-    } else {
-      this._deleteConfirmSubmit.textContent = this._deleteSubmitConfimText;
-    }
-  };
 }
