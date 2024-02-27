@@ -19,7 +19,7 @@ const config = {
   errorClass: "modal__form-input_type_error",
 };
 
-// Profile Variables
+// PROFILE VARIABLES
 
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileSubtitleInput = document.querySelector("#profile-subtitle-input");
@@ -29,18 +29,18 @@ const avatarImage = document.querySelector("#profile-avatar-image");
 const profileEditImageForm = document.querySelector("#image-edit-form");
 const pencil = document.querySelector("#profile-pencil");
 
-// Card Variables
+// CARD VARIABLES
 
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardForm = addCardModal.querySelector("#add-card-form");
 const cardsWrap = document.querySelector(".cards__list");
 
-// Preview Image Variables
+// PREVIEW VARIABLES
 
 const previewModal = document.querySelector("#preview-modal");
 const modalImage = previewModal.querySelector(".modal__image");
 
-// Buttons
+// BUTTONS
 
 const profileEditBtn = document.querySelector("#profile-edit-button");
 const addNewCardBtn = document.querySelector("#add-card-button");
@@ -101,7 +101,6 @@ function handleCardSubmit({ title: name, subtitle: link }) {
   api
     .addCard({ name, link })
     .then((card) => {
-      // debugger;
       newCardSection.addItem(card);
       addImageForm.close();
     })
@@ -263,6 +262,3 @@ const newCardSection = new Section(
   },
   cardsWrap
 );
-
-/* To-Do List:
-- FIX CORRECTIONS & SUBMIT */
