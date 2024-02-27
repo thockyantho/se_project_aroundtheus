@@ -1,33 +1,27 @@
 .page {
-  max-width: 1280px;
-  min-width: 320px;
-  margin: 0 auto;
-  background: black;
+  background-color: black;
+  color: white;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 .page__section {
   max-width: 880px;
   width: 100%;
-  margin: 0;
   position: relative;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .page__content {
   display: flex;
   flex-direction: column;
-  margin: 45px auto;
   min-height: 100vh;
-  max-width: 880px;
-  padding: 0 15px 0;
+  max-height: 2812px;
 }
 
-@media screen and (max-width: 620px) {
-  .page__content {
-    padding: 0;
-    margin: 28px auto;
-  }
-
-  .content {
-    margin: 0 15px;
+@media screen and (max-width: 1100px) {
+  .page__section {
+    margin: 0 20px;
+    max-width: calc(100% - 40px);
   }
 }
