@@ -101,7 +101,7 @@ function handleCardSubmit({ title: name, subtitle: link }) {
   api
     .addCard({ name, link })
     .then((card) => {
-      debugger;
+      // debugger;
       newCardSection.addItem(card);
       addImageForm.close();
     })
