@@ -211,7 +211,7 @@ modalImage.addEventListener("click", () => {
   previewImagePopup.open();
 });
 
-//CLASSES
+// CLASSES
 
 const profileEditImage = new FormValidator(config, editImageForm);
 profileEditImage.enableValidation();
