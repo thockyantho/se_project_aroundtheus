@@ -78,3 +78,4 @@ export default class Api {
     }).then((res) => this._checkResponce(res));
   }
 }
+//add

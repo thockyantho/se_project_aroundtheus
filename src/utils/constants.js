@@ -33,3 +33,4 @@ export const settings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+//add
