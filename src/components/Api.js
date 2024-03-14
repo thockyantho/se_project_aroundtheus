@@ -4,7 +4,7 @@ export default class Api {
     this._headers = headers;
   }
 
-  _checkResponce(res) {
+  _checkResponse(res) {
     if (res.ok) {
       return res.json();
     }
@@ -15,14 +15,14 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: this._headers,
-    }).then((res) => this._checkResponce(res));
+    }).then((res) => this._checkResponse(res));
   }
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers,
-    }).then((res) => this._checkResponce(res));
+    }).then((res) => this._checkResponse(res));
   }
 
   updateUserInfo({ name, description }) {
@@ -33,14 +33,14 @@ export default class Api {
         name: name,
         about: description,
       }),
-    }).then((res) => this._checkResponce(res));
+    }).then((res) => this._checkResponse(res));
   }
 
   deleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then((res) => this._checkResponce(res));
+    }).then((res) => this._checkResponse(res));
   }
 
   addCard({ name, link }) {
@@ -51,21 +51,21 @@ export default class Api {
         name: name,
         link: link,
       }),
-    }).then((res) => this._checkResponce(res));
+    }).then((res) => this._checkResponse(res));
   }
 
   setLike(id) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: "PUT",
       headers: this._headers,
-    }).then((res) => this._checkResponce(res));
+    }).then((res) => this._checkResponse(res));
   }
 
   removeLike(id) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: "DELETE",
       headers: this._headers,
-    }).then((res) => this._checkResponce(res));
+    }).then((res) => this._checkResponse(res));
   }
 
   changeAvatar(url) {
@@ -75,7 +75,7 @@ export default class Api {
       body: JSON.stringify({
         avatar: url,
       }),
-    }).then((res) => this._checkResponce(res));
+    }).then((res) => this._checkResponse(res));
   }
 }
 //add
